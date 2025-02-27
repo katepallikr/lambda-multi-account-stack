@@ -9,13 +9,13 @@ identity_token "aws" {
 # separate token with a difference audience value for your second account and use it below.
 #
 # identity_token "account_2" {
-#   audience = ["<Set to your AWS IAM assume-role audience>"]
+#   audience = ["aws.workload.identity"]
 # }
 
 deployment "development" {
   inputs = {
     region         = "us-east-1"
-    role_arn       = "<Set to your development AWS account IAM role ARN>"
+    role_arn       = "arn:aws:iam::798714130597:role/stacks-hashicorp-kranthi-Demo"
     identity_token = identity_token.aws.jwt
     default_tags   = { stacks-preview-example = "lambda-multi-account-stack" }
   }
@@ -24,7 +24,7 @@ deployment "development" {
 deployment "production" {
   inputs = {
     region         = "us-east-1"
-    role_arn       = "<Set to your production AWS account IAM role ARN>"
+    role_arn       = "arn:aws:iam::798714130597:role/stacks-hashicorp-kranthi-Demo"
     identity_token = identity_token.aws.jwt
     default_tags   = { stacks-preview-example = "lambda-multi-account-stack" }
   }
