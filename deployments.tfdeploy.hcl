@@ -23,7 +23,7 @@ deployment "development" {
 
 deployment "production" {
   inputs = {
-    region         = "us-east-1"
+    region         = "us-east-2"
     role_arn       = "arn:aws:iam::798714130597:role/stacks-hashicorp-kranthi-Demo"
     identity_token = identity_token.aws.jwt
     default_tags   = { stacks-preview-example = "lambda-multi-account-stack" }
