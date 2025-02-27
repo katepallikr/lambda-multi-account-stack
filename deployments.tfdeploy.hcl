@@ -30,6 +30,15 @@ deployment "production" {
   }
 }
 
+deployment "stagging" {
+  inputs = {
+    region         = "us-west-2"
+    role_arn       = "arn:aws:iam::798714130597:role/stacks-hashicorp-kranthi-Demo"
+    identity_token = identity_token.aws.jwt
+    default_tags   = { stacks-preview-example = "lambda-multi-account-stack" }
+  }
+}
+
 orchestrate "auto_approve" "safe_plans_dev" {
   check {
       # Only auto-approve in the development environment if no resources are being removed
