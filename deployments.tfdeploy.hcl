@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MPL-2.0
 
 identity_token "aws" {
-  audience = ["<Set to your AWS IAM assume-role audience>"]
+  audience = ["aws.workload.identity"]
 }
 
 # A single workload token can be trusted by multiple accounts - but optionally, you can generate a
